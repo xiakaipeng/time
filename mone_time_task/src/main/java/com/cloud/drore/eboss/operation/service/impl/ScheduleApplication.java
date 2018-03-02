@@ -65,10 +65,10 @@ public class ScheduleApplication {
 
     private String cronStr = "*/5 * * * * *";
 
-    public String startCron1(){
+    public String startCron1(String str){
         System.out.println("startCron1 >>>>");
         threadPoolTaskScheduler.initialize();
-        threadPoolTaskScheduler.schedule(new Say(), triggerContext -> new CronTrigger(cronStr).nextExecutionTime(triggerContext));
+        threadPoolTaskScheduler.schedule(new Say(), triggerContext -> new CronTrigger(str).nextExecutionTime(triggerContext));
         System.out.println("startCron1 <<<<");
         return "cronStr";
     }

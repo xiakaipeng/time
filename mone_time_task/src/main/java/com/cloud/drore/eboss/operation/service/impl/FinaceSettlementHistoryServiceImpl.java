@@ -34,10 +34,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -50,7 +47,7 @@ import java.util.stream.Collectors;
  * @Author: <a href="410508961@qq.com">夏凯</a>
  */
 @Service
-public class FinaceSettlementHistoryServiceImpl extends BaseServiceImpl  {
+public class FinaceSettlementHistoryServiceImpl extends BaseServiceImpl {
 
 
     @Resource
@@ -229,7 +226,7 @@ public class FinaceSettlementHistoryServiceImpl extends BaseServiceImpl  {
     /**
      * @param page
      * @ClassName: FinaceSettlementHistoryServiceImpl
-     * @Return: com.cloud.drore.eboos.common.base.ResultMessage<java.util.List                                                               <                                                               com.cloud.drore.eboss.operation.entity.FinaceSettlementHistoryOperation>>
+     * @Return: com.cloud.drore.eboos.common.base.ResultMessage<java.util.List                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               <                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               com.cloud.drore.eboss.operation.entity.FinaceSettlementHistoryOperation>>
      * @Decription: 通过供应商id和结算期查询运营商的结算记录
      * @CreateDate: Created in 2018/3/1 0001 下午 2:51
      * @Author: <a href="410508961@qq.com">夏凯</a>
@@ -298,7 +295,7 @@ public class FinaceSettlementHistoryServiceImpl extends BaseServiceImpl  {
     /**
      * @param page
      * @ClassName: FinaceSettlementHistoryServiceImpl
-     * @Return: com.cloud.drore.eboos.common.base.ResultMessage<java.util.List                                                               <                                                               com.cloud.drore.eboss.operation.entity.vo.FinaceSourseDataOperationAndSupplierVo>>
+     * @Return: com.cloud.drore.eboos.common.base.ResultMessage<java.util.List                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               <                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               com.cloud.drore.eboss.operation.entity.vo.FinaceSourseDataOperationAndSupplierVo>>
      * @Decription:
      * @CreateDate: Created in 2018/3/1 0001 下午 2:51
      * @Author: <a href="410508961@qq.com">夏凯</a>
@@ -332,9 +329,6 @@ public class FinaceSettlementHistoryServiceImpl extends BaseServiceImpl  {
     }
 
 
-
-
-
     /**
      * @param id
      * @ClassName: FinaceSettlementHistoryServiceImpl
@@ -355,30 +349,37 @@ public class FinaceSettlementHistoryServiceImpl extends BaseServiceImpl  {
   /*  @Autowired
     private ThreadPoolTaskScheduler threadPoolTaskScheduler;*/
 
-    public void addJob() {
-        ThreadPoolTaskScheduler threadPoolTaskScheduler =new ThreadPoolTaskScheduler();
-        threadPoolTaskScheduler.initialize();
+    /**
+     * @param str
+     * @ClassName: FinaceSettlementHistoryServiceImpl
+     * @Return: void
+     * @Decription: 添加定时任务, cron类型写法
+     * @CreateDate: Created in 2018/3/2 0002 下午 1:43
+     * @Author: <a href="410508961@qq.com">夏凯</a>
+     * @Modify:
+     */
+    public void addJob(String str) {
         //定时任务可执行的
-        /*ScheduleApplication  dynamicScheduleTaskSecond=new ScheduleApplication();
-        dynamicScheduleTaskSecond.startCron1();*/
-
-        threadPoolTaskScheduler.schedule(() -> System.out.println(Thread.currentThread().getName() + " run hah "),
-                new CronTrigger("0/5 * *  * * ? "));
-        //每5秒执行一次
+        ScheduleApplication dynamicScheduleTaskSecond = new ScheduleApplication();
+        dynamicScheduleTaskSecond.startCron1(str);
     }
-    /*    // 一天的毫秒数
-        long daySpan = 1 * 24 * 60 * 60 * 1000 ;
 
-        // 规定的每天时间15:33:30运行
-        final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        System.out.println("sdf"+ sdf);
-        // 首次运行时间
-        Date startTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(sdf.format(new Date()));
-
+    /**
+     * @param str
+     * @ClassName: FinaceSettlementHistoryServiceImpl
+     * @Return: void
+     * @Decription: 添加定时任务, 精确到毫秒的写法 Timer
+     * @CreateDate: Created in 2018/3/2 0002 下午 1:48
+     * @Author: <a href="410508961@qq.com">夏凯</a>
+     * @Modify:
+     */
+    public void addTimeTaskNoneCron(String str) {
+        // 一天的毫秒数
+        long daySpan =  24 * 60 * 60 * 1000;
+        // 首次运行时间，可以设定为准点的15:33:30运行
+        Date startTime = new Date();
         Timer t = new Timer();
-
         TimerTask task = new TimerTask() {
-            @Override
             public void run() {
                 // 要执行的代码
                 System.err.println("xxxxxxxxxs ");
@@ -387,5 +388,5 @@ public class FinaceSettlementHistoryServiceImpl extends BaseServiceImpl  {
         };
         // 以每24小时执行一次
         t.scheduleAtFixedRate(task, startTime, daySpan);
-    }*/
+    }
 }
