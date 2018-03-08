@@ -94,7 +94,11 @@
             <artifactId>eboos-common</artifactId>
             <version>0.0.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

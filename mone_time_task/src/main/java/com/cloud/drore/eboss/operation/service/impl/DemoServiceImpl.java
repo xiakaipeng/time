@@ -11,6 +11,7 @@ import com.cloud.drore.eboss.operation.supplierApiService.IConsumeSupplierApiSer
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +31,8 @@ public class DemoServiceImpl extends BaseServiceImpl implements IDemoService {
     DemoMapper demoMapper;
     @Autowired
     IConsumeSupplierApiService IConsumeSupplierApiService;
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
     @Override
     public MyMapper getMapper() {
         return demoMapper;
@@ -62,6 +65,7 @@ public class DemoServiceImpl extends BaseServiceImpl implements IDemoService {
      */
     public ResultMessage findByParms(Demo demo, PagePo page) {
         PageHelper.startPage(page);
+        redisTemplate.opsForValue().get("mykey1");
         List page1 = demoMapper.findByParms(demo);
         return	ResultMessage.success(new PageInfo<>(page1));
     }

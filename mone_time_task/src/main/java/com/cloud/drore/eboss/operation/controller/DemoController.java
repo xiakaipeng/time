@@ -77,9 +77,6 @@ public class DemoController {
     @PostMapping(value = "find")
     public ResultMessage find(@RequestBody PagePo<Demo> pagePo){
         Demo demo = pagePo.getFields();
-        if(demo.getParms()==2)
-            return demoService.findByName(pagePo);
-        else
             return demoService.findByParms(demo,pagePo);
     }
 
