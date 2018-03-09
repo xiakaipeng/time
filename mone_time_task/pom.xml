@@ -30,6 +30,27 @@
         <spring-cloud.version>Edgware.RELEASE</spring-cloud.version>
     </properties>
 
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>drore Team nexus</name>
+            <url>file:///C:/Users/Administrator/.m2/repository/com/cloud/logger/zchain/spring/zchain-springboot/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <name>drore Team nexus</name>
+            <url>file:///C:/Users/Administrator/.m2/repository/com/cloud/logger/zchain/spring/zchain-springboot/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <distributionManagement>
+        <repository>
+            <id>nexus-drore-team-3rd</id>
+            <url>file:///C:/Users/Administrator/.m2/repository/com/cloud/logger/zchain/spring/zchain-springboot/</url>
+        </repository>
+    </distributionManagement>
     <dependencies>
 
         <dependency>
@@ -41,7 +62,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.cloud.logger.zchain.adapter</groupId>
+            <artifactId>zchain-schedule</artifactId>
+            <version>0.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cloud.logger.zchain</groupId>
+            <artifactId>zchain-client</artifactId>
+            <version>0.0.7</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
@@ -98,6 +128,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-redis</artifactId>
             <version>1.4.7.RELEASE</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>23.0</version>
         </dependency>
     </dependencies>
 
