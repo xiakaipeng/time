@@ -25,7 +25,7 @@
     <name>common</name>
     <url>http://maven.apache.org</url>
 
-  <!--  <repositories>
+    <repositories>
         <repository>
             <id>nexus</id>
             <name>drore Team nexus</name>
@@ -44,7 +44,7 @@
             <id>nexus-drore-team-3rd</id>
             <url>http://192.168.11.110:8081/nexus/content/repositories/thirdparty/</url>
         </repository>
-    </distributionManagement>-->
+    </distributionManagement>
 
     <properties>
         <java.version>1.8</java.version>
@@ -92,6 +92,11 @@
             <artifactId>swagger-annotations</artifactId>
             <version>1.5.13</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-klock-starter</artifactId>
+            <version>1.1</version>
+        </dependency>
         <!-- mysql驱动 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -127,7 +132,7 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <version>5.0.0</version>
+            <version>5.1.2</version>
         </dependency>
 
         <dependency>
@@ -144,6 +149,11 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.9.0.pr3</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
         </dependency>
         <!--end pagehelper-->
     </dependencies>

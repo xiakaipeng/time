@@ -40,6 +40,13 @@ public class FinaceSupplierIncomeDetailsVo extends BaseEntity<Long> {
     private String distributorName;
 
     /**
+     * 产品名称
+     */
+    @JsonProperty("product_name")
+    @JSONField(name = "product_name")
+    @ApiModelProperty(name = "product_name", notes = "产品名称", example = "洪源门票")
+    private String productName;
+    /**
      * 订单编号
      */
     @JsonProperty("order_num")

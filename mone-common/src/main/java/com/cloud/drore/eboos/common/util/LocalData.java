@@ -17,8 +17,12 @@ public class LocalData {
         userInfo.setId(1L);
         userInfo.setUserName("eboss");
         userInfo.setTenantId(1+"");
-        userInfo.setType("dealer");
+        userInfo.setType("supplier");
+        userInfo.setTypeId(1L);
+        userInfo.setUserName("杨亮");
+        userInfo.setIsAdmin(1);
         return userInfo;
     }
 
 }
+

@@ -12,7 +12,5 @@ import lombok.Data;
  * @Author: <a href="836327318@qq.com">吴昌益</a>
  */
 @Data
-public class Demo extends BaseEntity<Long>{
-
-    public interface SAVE{};
+public class Demo{
 }

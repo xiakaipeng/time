@@ -22,12 +22,8 @@ public class PagePo<T> {
     @ApiModelProperty(name = "page_size", notes = "行数", example = "20")
     private Integer pageSize = 20;
     private T fields;
-    @JsonProperty("sort_type")
-    @JSONField(name = "sort_type")
-    @ApiModelProperty(name = "sort_type", notes = "正序:ASC,逆序：DESC", example = "DESC")
-    private String sortType;
-    @JsonProperty("sort_fields")
-    @JSONField(name = "sort_fields")
-    @ApiModelProperty(name = "sort_fields", notes = "正序:ASC,逆序：DESC", example = "id,create_date")
-    private String sortFields;
+    @JsonProperty("order_by")
+    @JSONField(name = "order_by")
+    @ApiModelProperty(name = "order_by", notes = "正序:ASC,逆序：DESC", example = "created_date DESC")
+    private String orderBy;
 }

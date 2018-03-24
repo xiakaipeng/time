@@ -7,6 +7,8 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
+import static net.sourceforge.pinyin4j.format.HanyuPinyinCaseType.UPPERCASE;
+
 
 /**
  * 浙江卓锐科技股份有限公司 版权所有  Copyright 2018<br>
@@ -49,7 +51,7 @@ public class Pinyin4jUtil {
     }
 
     public static String getFirstLettersUp(String ChineseLanguage){
-        return getFirstLetters(ChineseLanguage ,HanyuPinyinCaseType.UPPERCASE);
+        return getFirstLetters(ChineseLanguage , UPPERCASE);
     }
 
     public static String getFirstLettersLo(String ChineseLanguage){
@@ -117,7 +119,7 @@ public class Pinyin4jUtil {
         char[] cl_chars = ChineseLanguage.trim().toCharArray();
         String hanyupinyin = "";
         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();
-        defaultFormat.setCaseType(HanyuPinyinCaseType.UPPERCASE);// 输出拼音全部大写
+        defaultFormat.setCaseType(UPPERCASE);// 输出拼音全部大写
         defaultFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);// 不带声调
         try {
             String str = String.valueOf(cl_chars[0]);
@@ -138,8 +140,4 @@ public class Pinyin4jUtil {
         return hanyupinyin;
     }
 
-    public static void main(String[] args) {
-        Pinyin4jUtil hanyuPinyinHelper = new Pinyin4jUtil() ;
-        System.out.println(hanyuPinyinHelper.toHanyuPinyin("夏凯的冯腾"));
-    }
 }

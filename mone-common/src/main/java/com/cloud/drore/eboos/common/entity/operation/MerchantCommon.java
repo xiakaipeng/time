@@ -177,4 +177,13 @@ public class MerchantCommon extends BaseEntity<Long> {
     @ApiModelProperty(name = "merchant_manager", notes = "商户管理员", example = "USE_ROLE_COMMON(新增商户的时候不需要上传字段)")
     private Long merchantManager;
 
+    /**
+     * 商户编号
+     */
+    @JsonProperty("merchant_num")
+    @JSONField(name = "merchant_num")
+    @ApiModelProperty(name = "merchant_num", notes = "商户编号", example = "S0209")
+    private String merchantNum;
+
+
 }

@@ -48,15 +48,15 @@ public class ResultMessage<T>{
     }
 
     public static ResultMessage success(String meessage) {
-        return ResultMessage.Builder.builder().withMessage(meessage).build();
+        return Builder.builder().withMessage(meessage).build();
     }
 
     public static ResultMessage success(Object data) {
-        return ResultMessage.Builder.builder().withData(data).build();
+        return Builder.builder().withData(data).build();
     }
 
     public static ResultMessage success(PageInfo page) {
-        return ResultMessage.Builder.builder()
+        return Builder.builder()
                 .withCurrent(page.getPageNum())
                 .withTotal(page.getTotal())
                 .withSize(page.getSize())
@@ -64,15 +64,15 @@ public class ResultMessage<T>{
     }
 
     public static ResultMessage success(String meessage, Object data) {
-        return ResultMessage.Builder.builder().withMessage(meessage).withData(data).build();
+        return Builder.builder().withMessage(meessage).withData(data).build();
     }
 
     public static ResultMessage error(Long code, String meessage) {
-        return ResultMessage.Builder.builder().withIsSuccess(false).withCode(code).withMessage(meessage).build();
+        return Builder.builder().withIsSuccess(false).withCode(code).withMessage(meessage).build();
     }
 
     public static ResultMessage defaultError(String meessage) {
-        return ResultMessage.Builder.builder().withIsSuccess(false).withCode(500L).withMessage(meessage).build();
+        return Builder.builder().withIsSuccess(false).withCode(500L).withMessage(meessage).build();
     }
 
     public static final class Builder<T> {

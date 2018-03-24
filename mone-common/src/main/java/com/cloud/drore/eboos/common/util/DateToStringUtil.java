@@ -1,5 +1,7 @@
 package com.cloud.drore.eboos.common.util;
 
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -22,15 +24,15 @@ public class DateToStringUtil {
     private static final String dateTimeSting = "yyyy-MM-dd HH:mm:ss";
 
     /**
-     * @ClassName: DateToStringUtil
      * @param date
+     * @ClassName: DateToStringUtil
      * @Return: java.lang.String
      * @Decription:将Date转化为yyyy-MM-dd类型的字符串的方法
      * @CreateDate: Created in 2018/2/2 11:01
      * @Author: <a href="747639122@qq.com">冯腾</a>
      * @Modify:
      */
-    public static String getStringDate(Date date){
+    public static String getStringDate(Date date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateString);
         Instant instant = date.toInstant();
         LocalDate localDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
@@ -39,19 +41,35 @@ public class DateToStringUtil {
     }
 
     /**
-     * @ClassName: DateToStringUtil
      * @param date
+     * @ClassName: DateToStringUtil
      * @Return: java.lang.String
      * @Decription:将Date转化为yyyy-MM-dd HH-mm-ss类型的字符串的方法
      * @CreateDate: Created in 2018/2/2 11:03
      * @Author: <a href="747639122@qq.com">冯腾</a>
      * @Modify:
      */
-    public static String getStringDateTime(Date date){
+    public static String getStringDateTime(Date date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateTimeSting);
         Instant instant = date.toInstant();
         LocalDateTime localDateTime = instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
         String stringDateTime = localDateTime.format(formatter);
         return stringDateTime;
+    }
+
+    /**
+     * @ClassName: DateToStringUtil
+     * @param timeString
+     * @Return: java.util.Date
+     * @Decription: string类型的日期转化为HH:mm:ss类型
+     * @CreateDate: Created in 2018/3/15 0015 上午 9:30
+     * @Author: <a href="410508961@qq.com">夏凯</a>
+     * @Modify:
+     */
+    public static Date getTimeShort(String timeString) {
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+        ParsePosition pos = new ParsePosition(0);
+        Date strtodate = formatter.parse(timeString, pos);
+        return strtodate;
     }
 }

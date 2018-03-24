@@ -15,10 +15,11 @@ public class PageRequestFactory {
     private PageRequestFactory(){}
 
     public static PageRequest getPageInfo(PagePo po){
-        String sortFields = underline2Camel(po.getSortFields());
-        return new PageRequest(po.getPageNum(),
-                po.getPageSize(),
-                new Sort(Sort.Direction.valueOf(po.getSortType()),sortFields));
+//        String sortFields = underline2Camel(po.getSortFields());
+//        return new PageRequest(po.getPageNum(),
+//                po.getPageSize(),
+//                new Sort(Sort.Direction.valueOf(po.getSortType()),sortFields));
+        return null;
     }
 
     public static String underline2Camel(String param){

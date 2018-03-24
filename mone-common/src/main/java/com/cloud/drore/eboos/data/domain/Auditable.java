@@ -8,7 +8,7 @@ import java.util.Date;
  * Date: 2017/9/6
  * Time: 19:54
  */
-public interface Auditable<U, ID extends Serializable> extends Persistable<ID> {
+public interface Auditable<U, ID extends Serializable> extends Persistable<ID>  {
 
     U getCreatedBy();
 

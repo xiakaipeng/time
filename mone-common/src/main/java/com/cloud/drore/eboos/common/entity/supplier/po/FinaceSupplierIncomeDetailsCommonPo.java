@@ -43,7 +43,7 @@ public class FinaceSupplierIncomeDetailsCommonPo extends BaseEntity<Long> {
      */
     @JsonProperty("order_status")
     @JSONField(name = "order_status")
-    @ApiModelProperty(name = "order_status", notes = "订单状态", example = "16")
+    @ApiModelProperty(name = "order_status", notes = "订单状态", example = "17")
     private Integer orderStatus;
 
     /**
@@ -69,7 +69,7 @@ public class FinaceSupplierIncomeDetailsCommonPo extends BaseEntity<Long> {
      */
     @JsonProperty("supplier_settlement_price")
     @JSONField(name = "supplier_settlement_price")
-    @ApiModelProperty(name = "supplier_settlement_price", notes = "供应商应结算单价", example = "20")
+    @ApiModelProperty(name = "supplier_settlement_price", notes = "供应商应结算单价", example = "1000")
     private BigDecimal supplierSettlementPrice;
 
     /**

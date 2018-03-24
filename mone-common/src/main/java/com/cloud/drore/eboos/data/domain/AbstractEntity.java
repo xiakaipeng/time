@@ -14,7 +14,7 @@ import java.util.Date;
  * Time: 10:25
  */
 
-public abstract class AbstractEntity<ID extends Serializable> implements Auditable<String, ID>,Versionable {
+public abstract class AbstractEntity<ID extends Serializable> implements Auditable<String, ID>,Versionable{
 
     @Column(name = "created_date")
     @JsonProperty("created_date")
