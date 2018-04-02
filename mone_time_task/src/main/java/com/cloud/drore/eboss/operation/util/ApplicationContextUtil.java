@@ -21,7 +21,7 @@ public class ApplicationContextUtil implements ApplicationContextAware {
     // 若非同包或子包，则需手动import 注入，有没有@Component都一样
     // 可复制到Test同包测试
 
-    @Override
+
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         if(ApplicationContextUtil.applicationContext == null){
             ApplicationContextUtil.applicationContext  = applicationContext;
